@@ -1,0 +1,2 @@
+from filtermerger.filter import RequestFilter
+from filtermerger.merger import FilterMerger
