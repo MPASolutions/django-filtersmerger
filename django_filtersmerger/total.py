@@ -1,7 +1,7 @@
 import importlib
 from django.conf import settings
 
-from filtermerger import RequestFilter
+from django_filtersmerger import RequestFilter
 
 
 class TotalFilter(RequestFilter):

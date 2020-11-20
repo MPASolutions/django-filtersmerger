@@ -1,5 +1,5 @@
-from filtermerger.params import RequestFilterParams, DictFilterParams
-from filtermerger.total import TotalFilter
+from django_filtersmerger.params import RequestFilterParams, DictFilterParams
+from django_filtersmerger.total import TotalFilter
 
 
 class FilterMerger:
@@ -10,7 +10,7 @@ class FilterMerger:
 
     .. code-block:: py
 
-        from filtermerger import FilterMerger
+        from django_filtersmerger import FilterMerger
         filter_merger = FilterMerger(request=self.request)
         queryset = filter_merger.get_queryset(model)
 
