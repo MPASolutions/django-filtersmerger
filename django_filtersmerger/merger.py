@@ -23,6 +23,8 @@ class FilterMerger:
         """
         self.request = request
         self.params = params
+        # list of last classes which changed queryset
+        self.last_applied = None
 
     def get_queryset(self, model, initial_queryset=None):
         """
@@ -37,7 +39,31 @@ class FilterMerger:
         queryset = self.filter_queryset(queryset)
         return queryset
 
+    def get_queryset_applied(self, model):
+        """
+        Get queryset filtered by all registered filters and list of applied RequestFilter classes
+        :param model:
+        :return:
+        """
+        queryset = model.objects.all()
+        queryset, applied = self.filter_queryset_applied(queryset)
+        return queryset, applied
+
     def filter_queryset(self, queryset):
+        """
+        Filter queryset by all registered filters
+        :param queryset:
+        :return:
+        """
+        queryset, applied = self.filter_queryset_applied(queryset)
+        return queryset
+
+    def filter_queryset_applied(self, queryset):
+        """
+        Filter queryset by all registered filters and get list of applied RequestFilter classes
+        :param queryset:
+        :return:
+        """
         if self.request:
             params_proxy = RequestFilterParams(self.request)
         elif self.params:
@@ -48,4 +74,15 @@ class FilterMerger:
 
         queryset = total_filter.filter_queryset(queryset)
 
-        return queryset
+        self.last_applied = total_filter.get_last_applied()
+
+        return queryset, self.last_applied
+
+    def get_last_applied(self):
+        return self.last_applied
+
+    def get_last_debug_headers(self):
+        headers = {
+            'MpaFilterApplied': ','.join(self.last_applied)
+        }
+        return headers
