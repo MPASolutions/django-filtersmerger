@@ -35,7 +35,10 @@ class RequestFilterParams:
             data_str = self.request.body.decode()
 
         if data_str:
-            self.data = json.loads(data_str)
+            try:
+                self.data = json.loads(data_str)
+            except:
+                pass
 
     def get_param(self, name):
         if name in self.request.GET:

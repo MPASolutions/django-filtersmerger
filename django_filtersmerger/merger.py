@@ -24,13 +24,16 @@ class FilterMerger:
         self.request = request
         self.params = params
 
-    def get_queryset(self, model):
+    def get_queryset(self, model, initial_queryset=None):
         """
         Get queryset filtered by all registered filters
         :param model:
         :return:
         """
-        queryset = model.objects.all()
+        if initial_queryset is not None:
+            queryset = initial_queryset
+        else:
+            queryset = model.objects.all()
         queryset = self.filter_queryset(queryset)
         return queryset
 
