@@ -9,8 +9,9 @@ class FilterParams:
     def get_param(self, name):
         """
         Get parameter value by name. This method must be implemented in subclasses.
+
         :param name:
-        :return: Param value or None if undefined.
+        :return: Param value or None if undefined. If defined but has no value, it returns empty string.
         """
         return None
 
