@@ -1,5 +1,12 @@
-Django filtersmerger
-============
+Django Filtersmerger
+====================
+
+.. image:: https://badge.fury.io/py/django-filtersmerger.svg
+    :target: https://badge.fury.io/py/django-filtersmerger
+    :alt: Version
+
+.. image:: https://readthedocs.org/projects/django-filtersmerger/badge/?version=latest
+    :target: http://django-filtersmerger.readthedocs.org/en/latest/?badge=latest
 
 .. image:: https://img.shields.io/github/issues/MPASolutions/django-filtersmerger.svg
     :target: https://github.com/MPASolutions/django-filtersmerger/issues

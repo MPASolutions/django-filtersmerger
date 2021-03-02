@@ -8,6 +8,7 @@ Development Lead
 
 * Alessandro Regolini <regolini@mpasol.it> 
 * Alessio Bazzanella <bazzanella@mpasol.it>
+* Kristjan Gjika <kristjan.gjika@enogis.it>
 * Radim Blazek <radim.blazek@gmail.com>
 
 Contributors
