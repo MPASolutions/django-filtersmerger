@@ -1,10 +1,9 @@
 # -*- coding: utf-8 -*-
 
-from __future__ import unicode_literals
+import importlib
 
 from django import template
 from django.conf import settings
-import importlib
 
 register = template.Library()
 
@@ -30,7 +29,8 @@ def get_request_filter_params(context):
         module = importlib.import_module(module_path)
         filter_class = getattr(module, class_name)
         filter_params[class_name] = getattr(filter_class, 'PARAM', None)
-        if class_name not in ['DjangoAdvancedOTFWebixFilter', 'DjangoAdvancedWebixFilter', 'SpatialFilter', 'DjangoBaseWebixFilter']:
+        if class_name not in ['DjangoAdvancedOTFWebixFilter', 'DjangoAdvancedWebixFilter', 'SpatialFilter',
+                              'DjangoBaseWebixFilter']:
             extra_filter_params[class_name] = getattr(filter_class, 'PARAM', None)
         if class_name in ['SpatialFilter']:
             spatial_filter_params[class_name] = getattr(filter_class, 'PARAM', None)

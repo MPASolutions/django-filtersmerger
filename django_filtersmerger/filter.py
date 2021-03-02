@@ -1,4 +1,3 @@
-
 class RequestFilter:
     """
     RequestFilter subclasses filter queryset using parameters which can be acquired calling get_param(name).
@@ -82,4 +81,3 @@ class RequestFilter:
     #     :return:
     #     """
     #     return []
-
