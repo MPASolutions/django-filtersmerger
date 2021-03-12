@@ -83,6 +83,6 @@ class FilterMerger:
 
     def get_last_debug_headers(self):
         headers = {
-            'MpaFilterApplied': ','.join(self.last_applied)
+            'MpaFilterApplied': ','.join(self.last_applied) if self.last_applied else ''
         }
         return headers
