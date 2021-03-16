@@ -66,7 +66,7 @@ class FilterMerger:
         """
         if self.request:
             params_proxy = RequestFilterParams(self.request)
-        elif self.params:
+        elif self.params is not None:  # potrebbe essere dict vuoto
             params_proxy = DictFilterParams(self.params)
 
         total_filter = TotalFilter()
