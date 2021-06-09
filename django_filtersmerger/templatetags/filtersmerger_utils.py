@@ -25,7 +25,7 @@ def get_request_filter_params(context):
     """
     filter_params = get_registered_filters_param()
 
-    context['filter_params'] = filter_params['regsitered_filters']
+    context['filter_params'] = filter_params['registered_filters']
     context['extra_filter_params'] = filter_params['extra_filter']
     context['spatial_filter_params'] = filter_params['spatial_filter']
     return ''

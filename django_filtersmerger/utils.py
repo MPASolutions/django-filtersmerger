@@ -48,7 +48,7 @@ def get_registered_filters_param(filter_name=None):
                 spatial_filter_params[class_name] = filter_param
 
         return {
-            'regsitered_filters': filter_params,
+            'registered_filters': filter_params,
             'extra_filter': extra_filter_params,
             'spatial_filter': spatial_filter_params,
         }
