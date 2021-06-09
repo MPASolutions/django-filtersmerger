@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from django import template
-from django_filtersmerger.utils import get_regsitered_filters_param
+from django_filtersmerger.utils import get_registered_filters_param
 
 register = template.Library()
 
@@ -13,7 +13,7 @@ def request_filter_param(filter_name):
     :param filter_name: filter name (class) of the requested param
     :return:
     """
-    return get_regsitered_filters_param(filter_name)
+    return get_registered_filters_param(filter_name)
 
 
 @register.simple_tag(takes_context=True)
@@ -23,7 +23,7 @@ def get_request_filter_params(context):
     :param context:
     :return:
     """
-    filter_params = get_regsitered_filters_param()
+    filter_params = get_registered_filters_param()
 
     context['filter_params'] = filter_params['regsitered_filters']
     context['extra_filter_params'] = filter_params['extra_filter']

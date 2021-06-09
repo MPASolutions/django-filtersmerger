@@ -9,7 +9,7 @@ def get_request_filter(class_path):
     return filter_class
 
 
-def get_regsitered_filters_param(filter_name=None):
+def get_registered_filters_param(filter_name=None):
 
     if filter_name is not None:
 
