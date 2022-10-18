@@ -32,7 +32,7 @@ class RequestFilterParams:
         data_str = self.request.GET.get('post')
 
         # legacy webgis is sending 'filter' param in json body or as param
-        if not data_str and self.request.body and self.request.is_ajax():
+        if not data_str and self.request and self.request.is_ajax():
             data_str = self.request.body.decode()
 
         if data_str:
