@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+
 
 from django import template
 from django_filtersmerger.utils import get_registered_filters_param
