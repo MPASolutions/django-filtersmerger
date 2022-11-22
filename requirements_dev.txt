@@ -2,14 +2,14 @@
 Django>=3.0
 
 # Testing
-coverage
-flake8
-tox
+#coverage
+#flake8
+#tox
 
 # Documentation
-Sphinx
-sphinx-rtd-theme
+#Sphinx
+#sphinx-rtd-theme
 
 # Other tools
-bumpversion==0.5.3
-wheel==0.29.0
+#bumpversion==0.5.3
+#wheel==0.29.0
