@@ -58,21 +58,22 @@ class FilterMerger:
         queryset, applied = self.filter_queryset_applied(queryset)
         return queryset
 
+    def get_params_proxy(self):
+        if self.request:
+            return RequestFilterParams(self.request)
+        elif self.params is not None:  # potrebbe essere dict vuoto
+            return DictFilterParams(self.params)
+        else:
+            return DictFilterParams({})  # default
+
     def filter_queryset_applied(self, queryset):
         """
         Filter queryset by all registered filters and get list of applied RequestFilter classes
         :param queryset:
         :return:
         """
-        if self.request:
-            params_proxy = RequestFilterParams(self.request)
-        elif self.params is not None:  # potrebbe essere dict vuoto
-            params_proxy = DictFilterParams(self.params)
-        else:
-            params_proxy = DictFilterParams({}) # default
-
         total_filter = TotalFilter()
-        total_filter.set_params(params_proxy)
+        total_filter.set_params(self.get_params_proxy())
 
         queryset = total_filter.filter_queryset(queryset)
 
