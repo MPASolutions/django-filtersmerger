@@ -1,4 +1,4 @@
-from django_filtersmerger.params import RequestFilterParams, DictFilterParams
+from django_filtersmerger.params import DictFilterParams, RequestFilterParams
 from django_filtersmerger.total import TotalFilter
 
 
@@ -85,7 +85,5 @@ class FilterMerger:
         return self.last_applied
 
     def get_last_debug_headers(self):
-        headers = {
-            'MpaFilterApplied': ','.join(self.last_applied) if self.last_applied else ''
-        }
+        headers = {"MpaFilterApplied": ",".join(self.last_applied) if self.last_applied else ""}
         return headers

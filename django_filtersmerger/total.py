@@ -9,12 +9,13 @@ class TotalFilter(RequestFilter):
     """
     TotalFilter joins conditions from all RequestFilter subclasses specified in settings
     """
+
     last_applied = None
 
     def filter_queryset(self, queryset, **kwargs):
         self.last_applied = []
         for class_path in settings.FILTER_MERGER_CLASSES:
-            module_path, class_name = class_path.rsplit('.', 1)
+            module_path, class_name = class_path.rsplit(".", 1)
             module = importlib.import_module(module_path)
             filter_class = getattr(module, class_name)
             # self.filters.append(filter_class(request))

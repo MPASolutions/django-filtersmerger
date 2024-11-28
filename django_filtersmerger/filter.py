@@ -59,7 +59,7 @@ class RequestFilter:
         :return: Param value or None if undefined.
         """
         if self._params is None:
-            raise Exception('Params not set')
+            raise Exception("Params not set")
         return self._params.get_param(name)
 
     # -------------------------------- internals ---------------------------------
