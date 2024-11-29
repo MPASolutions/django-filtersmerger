@@ -1,12 +1,11 @@
-
-
 from django import template
+
 from django_filtersmerger.utils import get_registered_filters_param
 
 register = template.Library()
 
 
-@register.filter('request_filter_param')
+@register.filter("request_filter_param")
 def request_filter_param(filter_name):
     """
     get specific filter PARAM for given filter class
@@ -25,7 +24,7 @@ def get_request_filter_params(context):
     """
     filter_params = get_registered_filters_param()
 
-    context['filter_params'] = filter_params['registered_filters']
-    context['extra_filter_params'] = filter_params['extra_filter']
-    context['spatial_filter_params'] = filter_params['spatial_filter']
-    return ''
+    context["filter_params"] = filter_params["registered_filters"]
+    context["extra_filter_params"] = filter_params["extra_filter"]
+    context["spatial_filter_params"] = filter_params["spatial_filter"]
+    return ""
