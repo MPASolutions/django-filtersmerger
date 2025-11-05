@@ -26,7 +26,11 @@ classifiers = [
 ]
 
 dependencies = [
-    {file = "requirements.txt"},
+    "Django",
+]
+# Develop dependencies (optional)
+[project.optional-dependencies]
+dev = [
 ]
 
 [project.urls]
