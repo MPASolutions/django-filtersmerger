@@ -36,23 +36,22 @@ dev = [
 [project.urls]
 Homepage = "https://github.com/MPASolutions/django-filtersmerger"
 
+[project.scripts]
+publish = "scripts.publish:main"
+tag = "scripts.tag:main"
+
 [tool.setuptools]
 include-package-data = true
-exclude-packages = ["tests"]
 
 [tool.setuptools.packages.find]
 where = ["."]
 include = ["*"]
-exclude = []
+exclude = ["tests*"]
 namespaces = false
 
 [tool.setuptools.dynamic]
 version = {attr = "django_filtersmerger.__init__.__version__"}
 # long-description = {file = ["README.rst", "CHANGELOG.rst"], content-type = "text/x-rst"}
-
-[tool.setuptools.scripts]
-publish = "scripts.publish:main"
-tag = "scripts.tag:main"
 
 [tool.isort]
 profile = "black"
