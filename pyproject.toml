@@ -46,7 +46,7 @@ include-package-data = true
 [tool.setuptools.packages.find]
 where = ["."]
 include = ["*"]
-exclude = ["tests*"]
+exclude = ["tests*", "docs*"]
 namespaces = false
 
 [tool.setuptools.dynamic]
